@@ -6,7 +6,7 @@ admin.initializeApp();
 // Cloud Firestore triggers ref: https://firebase.google.com/docs/functions/firestore-events
 exports.myFunction = functions.firestore
   .document("chat/{messageId}")
-  .onCreate((snapshot, context) => {
+  .onCreate((snapshot) => {
     // Return this function's promise, so this ensures the firebase function
     // will keep running, until the notification is scheduled.
     return admin.messaging().sendToTopic("chat", {
